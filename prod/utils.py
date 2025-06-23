@@ -1,4 +1,3 @@
-%%writefile prod/utils.py
 import os
 import urllib.request
 from zipfile import ZipFile
