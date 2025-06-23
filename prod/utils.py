@@ -88,7 +88,7 @@ def load_model():
     """Loads the generator with pretrained weights."""
     download_weights()
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     z_dim = 100
     num_classes = 30
     G = Generator(z_dim, num_classes).to(device)
@@ -102,7 +102,7 @@ def generar_por_genero(generator, genre_id, num_imgs=8):
     """Genera una lista de imágenes falsas (tensors) para un género dado."""
     z_dim = 100
     num_classes = 30
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     generator.eval()
     with torch.no_grad():
         labels = torch.full((num_imgs,), genre_id, dtype=torch.long, device=device)
